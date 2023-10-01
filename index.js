@@ -15,7 +15,7 @@ app.use(session({
 connection
     .authenticate()
     .then(() => {
-        console.log("Conexão feita com o banco de dados!")
+        //console.log("Conexão feita com o banco de dados!")
     })
     .catch((msgErro) => {
         console.log(msgErro);
@@ -29,6 +29,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 
+//ROTAS
 app.get("/",(req, res) => {
     res.render("index");
 });
@@ -48,14 +49,13 @@ app.post("/login",(req, res) => {
                     user: login.user
                 }
                 res.redirect("/home");
-
             }else{
                 console.log(login);
                 res.send("Login ou senha não encontrado");
             }
         }else{
             console.log(login);
-            res.send("Login ou senha não encontrado");
+            res.status(403).send("Login ou senha não encontrado");
         }
     });
 });
