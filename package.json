@@ -1,10 +1,10 @@
 {
   "name": "tde",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -22,5 +22,17 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhonatanfariasdelima/TDE-devsecops.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jhonatanfariasdelima/TDE-devsecops/issues"
+  },
+  "homepage": "https://github.com/jhonatanfariasdelima/TDE-devsecops#readme",
+  "description": ""
 }

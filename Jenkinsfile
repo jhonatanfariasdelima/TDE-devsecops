@@ -9,10 +9,10 @@ pipeline {
             }
         }
 
-        stage('Testes') {
+        stage('Testes-unitarios') {
             steps {
                 // Executa os testes (substitua este comando pelo seu próprio)
-                sh 'npm test'
+                sh 'npm run test'
             }
         }
     }
