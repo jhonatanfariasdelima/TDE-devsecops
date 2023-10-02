@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:14' // Escolha a versão desejada
+        }
+    }
 
     stages {
         // Defina suas etapas aqui
@@ -18,13 +22,7 @@ pipeline {
 
         stage('Preparar Ambiente') {
             steps {
-                script {
-                    // Instalação das dependências Node.js
-                    def npmInstallation = tool name: 'npm', type: 'ToolInstallation'
-                    withEnv(["PATH+NODEJS=$npmInstallation/bin"]) {
-                        sh 'npm install'
-                    }
-                }
+                sh 'npm install'
             }
         }
 
