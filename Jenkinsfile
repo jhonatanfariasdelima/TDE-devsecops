@@ -29,13 +29,10 @@ pipeline {
 
         stage('Testes Unitários') {
             steps {
-                try {
-                    // Executa os testes (substitua este comando pelo seu próprio)
-                    sh 'npm run test'
-                } catch (Exception e) {
-                    currentBuild.result = 'FAILURE'
-                    error("Erro nos testes unitários: ${e.message}")
-                }
+                
+                // Executa os testes (substitua este comando pelo seu próprio)
+                sh 'npm run test'
+                
             }
         }
     }
