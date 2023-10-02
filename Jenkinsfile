@@ -11,11 +11,11 @@ pipeline {
         stage('dependencias') {
             steps {
                 sh 'apt update'
-                sh 'apt-get install curl'
+                sh 'apt-get install -y curl'
                 sh 'curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -'
                 sh 'apt-get install -y nodejs'
                 sh 'node --version'
-                sh 'apt install mysql-server'
+                sh 'apt install -y mysql-server'
                 sh 'systemctl start mysql'
                 sh 'systemctl status mysql'
                 sh 'mysql -h 127.0.0.1 -P 3306 -u root -e "CREATE DATABASE banco;"'
