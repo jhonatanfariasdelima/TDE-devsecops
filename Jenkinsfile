@@ -10,7 +10,7 @@ pipeline {
         // Defina suas etapas aqui
         stage('dependencias') {
             steps {
-                sh 'sudo apt update'
+                sh 'apt update'
                 sh 'sudo apt-get install curl'
                 sh 'curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -'
                 sh 'sudo apt-get install -y nodejs'
