@@ -12,7 +12,7 @@ pipeline {
             steps {
                 sh 'apt update'
                 sh 'apt-get install -y curl'
-                sh 'curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -'
+                sh 'curl -fsSL https://deb.nodesource.com/setup_lts.x | -E bash -'
                 sh 'apt-get install -y nodejs'
                 sh 'node --version'
                 sh 'apt install -y mysql-server'
