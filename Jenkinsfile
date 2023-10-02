@@ -5,9 +5,9 @@ pipeline {
         // Defina suas etapas aqui
         stage('build') {
             steps {
-                sh 'sudo apt-get install curl'
+                sh 'apt-get install curl'
                 sh 'curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -'
-                sh 'sudo apt-get install -y nodejs'
+                sh 'apt-get install -y nodejs'
                 sh 'node --version'
             }
         }
