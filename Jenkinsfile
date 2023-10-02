@@ -1,15 +1,13 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:18.18.0-alpine3.18'
-            args '-u root' // Opcional: executar como usuário root (se necessário)
-        }
-    }
+    agent { any}
 
     stages {
         // Defina suas etapas aqui
         stage('build') {
             steps {
+                sh 'sudo apt-get install curl'
+                sh 'curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -'
+                sh 'sudo apt-get install -y nodejs'
                 sh 'node --version'
             }
         }
