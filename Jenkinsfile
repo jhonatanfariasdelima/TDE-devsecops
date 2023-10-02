@@ -1,7 +1,13 @@
 pipeline {
-    agent { docker { image 'node:18.18.0-alpine3.18' } }
-    
+    agent {
+        docker {
+            image 'node:18.18.0-alpine3.18'
+            args '-u root' // Opcional: executar como usuário root (se necessário)
+        }
+    }
+
     stages {
+        // Defina suas etapas aqui
         stage('build') {
             steps {
                 sh 'node --version'
@@ -49,3 +55,5 @@ pipeline {
         }
     }
 }
+
+
