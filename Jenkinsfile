@@ -1,12 +1,13 @@
 pipeline {
-    agent any
+    agent { docker { image 'node:18.18.0-alpine3.18' } }
 
-    environment {
-        // Defina as variáveis de ambiente para o Node.js e npm
-        NODEJS_HOME = tool name: 'NodeJS', type: 'ToolInstallation'
-        PATH = "$NODEJS_HOME/bin:$PATH"
+    stage('build') {
+        steps {
+            sh 'node --version'
+        }
     }
-
+    
+    
     stages {
         stage('Checkout') {
             steps {
