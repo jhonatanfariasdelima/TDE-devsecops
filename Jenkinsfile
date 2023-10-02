@@ -1,14 +1,13 @@
 pipeline {
     agent { docker { image 'node:18.18.0-alpine3.18' } }
-
-    stage('build') {
-        steps {
-            sh 'node --version'
-        }
-    }
-    
     
     stages {
+        stage('build') {
+            steps {
+                sh 'node --version'
+            }
+        }
+
         stage('Checkout') {
             steps {
                 // Checkout do código-fonte do repositório
