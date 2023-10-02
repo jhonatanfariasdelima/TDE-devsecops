@@ -10,7 +10,7 @@ pipeline {
         // Defina suas etapas aqui
         stage('dependencias') {
             steps {
-                //sh 'apt update'
+                sh 'apt update'
                 sh 'apt install mysql-server'
                 sh 'systemctl start mysql'
                 sh 'systemctl status mysql'
