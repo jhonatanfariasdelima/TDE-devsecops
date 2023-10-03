@@ -1,23 +1,48 @@
-# Use the official Ubuntu as the base image
+# Use a imagem base do Ubuntu 20.04
 FROM ubuntu:latest
 
 
-# Use a imagem oficial do Ubuntu como base
-FROM ubuntu:latest
+# Atualize os pacotes do sistema
+RUN apt-get update && apt-get -y upgrade
 
-# Use a imagem oficial do Ubuntu como base
-FROM ubuntu:latest
+# Instale o servidor MySQL e outras dependências
+RUN apt-get -y install mysql-server
 
-# Atualize os repositórios e instale o MySQL Server
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server && \
-    apt-get clean
+# Copie seu arquivo de configuração personalizado, se necessário
+# COPY my.cnf /etc/mysql/my.cnf
 
-# Inicialize o MySQL Server
-CMD ["mysqld", "--user=mysql", "--console"]
+# # Defina a senha do root para o MySQL (altere-a para uma senha segura)
+# RUN echo "mysql-server mysql-server/root_password password senha_segura" | debconf-set-selections
+# RUN echo "mysql-server mysql-server/root_password_again password senha_segura" | debconf-set-selections
 
-# Verifique o status do MySQL após o contêiner ser iniciado
+# Inicialize o serviço MySQL
+RUN service mysql start
+RUN sleep 30
 RUN service mysql status
+
+
+
+
+# # Use the official Ubuntu as the base image
+# FROM ubuntu:latest
+
+
+# # Use a imagem oficial do Ubuntu como base
+# FROM ubuntu:latest
+
+# # Use a imagem oficial do Ubuntu como base
+# FROM ubuntu:latest
+
+# # Atualize os repositórios e instale o MySQL Server
+# RUN apt-get update && \
+#     DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server && \
+#     apt-get clean
+
+# # Inicialize o MySQL Server
+# CMD ["mysqld", "--user=mysql", "--console"]
+
+# # Verifique o status do MySQL após o contêiner ser iniciado
+# RUN service mysql status
 
 
 
