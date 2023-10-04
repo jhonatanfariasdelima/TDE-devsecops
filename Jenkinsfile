@@ -9,12 +9,14 @@ pipeline {
     stages {
         // Defina suas etapas aqui
 
-        // stage('dependencias') {
-        //     steps {
-        //         sh 'systemctl status mysql'
-        //         sh 'node --version'
-        //     }
-        // }
+        stage('dependencias') {
+            steps {
+                // sh 'systemctl status mysql'
+                // sh 'node --version'
+
+                sh 'mysql -u root -e "CREATE DATABASE banco;"'
+            }
+        }
 
         stage('Checkout') {
             steps {
