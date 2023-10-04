@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'jhonatanfariasdelima/tde' // Escolha a versão desejada
+            image 'jhonatanfariasdelima/tde:0.1' // Escolha a versão desejada
             args '-u root' // Executa como root para instalar pacotes
         }
     }
