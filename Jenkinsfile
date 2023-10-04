@@ -9,12 +9,12 @@ pipeline {
     stages {
         // Defina suas etapas aqui
 
-        stage('dependencias') {
-            steps {
-                sh 'systemctl status mysql'
-                sh 'node --version'
-            }
-        }
+        // stage('dependencias') {
+        //     steps {
+        //         sh 'systemctl status mysql'
+        //         sh 'node --version'
+        //     }
+        // }
 
         stage('Checkout') {
             steps {
