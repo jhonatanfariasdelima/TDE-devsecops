@@ -14,7 +14,9 @@ pipeline {
                 // sh 'systemctl status mysql'
                 // sh 'node --version'
 
-                sh 'mysql -u root -e "CREATE DATABASE banco;"'
+                //sh 'mysql -u root -e "CREATE DATABASE banco;"'
+                sh 'wait-for-it -t 60 mysql:3306 -- mysql -u root -e "CREATE DATABASE banco;"'
+
             }
         }
 
