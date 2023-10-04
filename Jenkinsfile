@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'ubuntu' // Escolha a versão desejada
+            image 'jhonatanfariasdelima/tde' // Escolha a versão desejada
             args '-u root' // Executa como root para instalar pacotes
         }
     }
@@ -11,18 +11,8 @@ pipeline {
 
         stage('dependencias') {
             steps {
-                sh 'apt update'
-                // sh 'apt install mysql-server'
-                // sh 'systemctl start mysql'
-                // sh 'systemctl status mysql'
-                //sh 'mysql -h 127.0.0.1 -P 3306 -u root -e "CREATE DATABASE banco;"'
-
-                sh 'apt-get install -y curl'
-                sh 'curl -fsSL https://deb.nodesource.com/setup_lts.x -o setup_lts.x'
-                sh 'bash setup_lts.x'
-                sh 'apt-get install -y nodejs'
+                sh 'systemctl status mysql'
                 sh 'node --version'
-                
             }
         }
 
