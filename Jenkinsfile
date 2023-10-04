@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'ubuntu' // Escolha a versão desejada
-            args '-u root -d --network tde' // Executa como root para instalar pacotes
+            args '-u root' // Executa como root para instalar pacotes
         }
     }
 
