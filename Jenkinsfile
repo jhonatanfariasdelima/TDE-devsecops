@@ -1,8 +1,8 @@
 pipeline {
     agent {
         docker {
-            image 'ubuntu' // Escolha a versão desejada
-            args '-u root' // Executa como root para instalar pacotes
+            image 'jhonatanfariasdelima/tde:0.1' // Escolha a versão desejada
+            args '-u root -d' // Executa como root para instalar pacotes
         }
     }
 
@@ -12,18 +12,9 @@ pipeline {
         stage('dependencias') {
             steps {
 
-                sh 'apt-get update'
-
-                // Instale o Curl                
-                sh 'apt-get install -y curl'
-
-                // Instale o Node.js e o npm'
-                sh 'curl -fsSL https://deb.nodesource.com/setup_lts.x -o setup_lts.x'
-                sh 'bash setup_lts.x'
-                sh 'apt-get install -y nodejs'
-                
-                // Verifique a versão do Node.js
                 sh 'node --version'
+
+                sh 'mysql -u root -e "CREATE DATABASE banco;"'
 
             }
         }
