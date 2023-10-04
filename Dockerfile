@@ -1,5 +1,5 @@
 # Use a imagem base do Ubuntu 20.04
-FROM mysql:8.0.34-debian
+FROM ubuntu
 
 # Atualize os pacotes do sistema
 RUN apt-get update
