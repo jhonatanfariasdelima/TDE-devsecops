@@ -25,7 +25,7 @@ pipeline {
                         sh "export MYSQL_PASSWORD='$MYSQL_PASSWORD'"
                     }
                 }
-
+                sh 'printenv'
                 // Instale o Curl                
                 sh 'apt-get install -y curl'
 
