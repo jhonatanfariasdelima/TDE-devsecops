@@ -17,11 +17,11 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: '1', passwordVariable: 'MYSQL_PASSWORD', usernameVariable: 'MYSQL_USERNAME')]) {
                         
                         // Use as variáveis MYSQL_USERNAME e MYSQL_PASSWORD aqui
-                        sh "echo 'Username: \$MYSQL_USERNAME'"
-                        sh "echo 'Password: \$MYSQL_PASSWORD'"
+                        sh "echo 'Username: $MYSQL_USERNAME'"
+                        sh "echo 'Password: $MYSQL_PASSWORD'"
                         
                         // Você pode usar as variáveis nas etapas seguintes, como para autenticar com o MySQL
-                        //sh "mysql -u \${MYSQL_USERNAME} -p\${MYSQL_PASSWORD} -e 'seu-comando-sql-aqui'"
+                        sh "mysql -u \${MYSQL_USERNAME} -p\${MYSQL_PASSWORD} -e 'SELECT * FROM logins;'"
                     }
                 }
 
