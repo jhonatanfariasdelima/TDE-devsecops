@@ -19,7 +19,7 @@ pipeline {
                         sh 'apt-get update'
                         sh 'apt install -y mysql-client'
                        
-                        sh "TESTE BANCO DE DADOS"
+                        sh "echo 'TESTE BANCO DE DADOS'"
                         sh "mysql -h 172.19.0.2 -u $MYSQL_USERNAME -p'$MYSQL_PASSWORD' -e 'USE banco; SELECT * FROM logins;'"
                         
                         sh "export MYSQL_PASSWORD='$MYSQL_PASSWORD'"
