@@ -21,7 +21,7 @@ pipeline {
                         sh "echo 'Password: $MYSQL_PASSWORD'"
                         
                         // Você pode usar as variáveis nas etapas seguintes, como para autenticar com o MySQL
-                        sh "mysql -u \${MYSQL_USERNAME} -p \${MYSQL_PASSWORD} -e 'SELECT * FROM logins;'"
+                        //sh "mysql -u \${MYSQL_USERNAME} -p \${MYSQL_PASSWORD} -e 'SELECT * FROM logins;'"
                         sh "mysql -h 172.19.0.2 -u $MYSQL_USERNAME -p $MYSQL_PASSWORD -e 'SELECT * FROM logins;'"
                     }
                 }
