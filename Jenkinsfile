@@ -21,7 +21,7 @@ pipeline {
                     sh 'apt install -y mysql-client'
                     
                     sh "echo 'TESTE BANCO DE DADOS'"
-                    sh "mysql -h 172.19.0.2 -u 'root' -p'$MYSQL_PASSWORD' -e 'USE banco; SELECT * FROM logins;'"
+                    sh "mysql -h 172.19.0.2 -u 'root' -p '$MYSQL_PASSWORD' -e 'USE banco; SELECT * FROM logins;'"
                     
                     sh "export MYSQL_PASSWORD='$MYSQL_PASSWORD'"
                     
