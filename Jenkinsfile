@@ -16,7 +16,7 @@ pipeline {
         stage('dependencias') {
             steps {
                 sh 'export mysql="$MYSQL_PASSWORD"'
-                sh 'mysql'
+                sh 'echo $mysql'
 
                 sh 'apt-get update'
 
