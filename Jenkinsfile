@@ -3,10 +3,11 @@ pipeline {
         docker {
             image 'ubuntu' // Escolha a versão desejada
             args '-u root --network tde' // Executa como root para instalar pacotes
+            environment {
+                MYSQL_PASSWORD = credentials('mysql')
+            }
         }
-        environment {
-            MYSQL_PASSWORD = credentials('mysql')
-        }
+        
     }
 
     stages {
@@ -14,7 +15,7 @@ pipeline {
 
         stage('dependencias') {
             steps {
-                sh 'export mysql=MYSQL_PASSWORD'
+                sh 'export mysql="$MYSQL_PASSWORD"'
                 sh 'mysql'
 
                 sh 'apt-get update'
