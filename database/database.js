@@ -1,4 +1,4 @@
-require('dotenv').config();
+//require('dotenv').config();
 const Sequelize = require('sequelize');
 
 const password = process.env.MYSQL_PASSWORD;
