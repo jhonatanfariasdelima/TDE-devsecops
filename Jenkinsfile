@@ -22,12 +22,13 @@ pipeline {
                         
                         // Você pode usar as variáveis nas etapas seguintes, como para autenticar com o MySQL
                         //sh "mysql -u \${MYSQL_USERNAME} -p \${MYSQL_PASSWORD} -e 'SELECT * FROM logins;'"
-                        sh "mysql -h 172.19.0.2 -u $MYSQL_USERNAME -p $MYSQL_PASSWORD -e 'SELECT * FROM logins;'"
+                        
                     }
                 }
 
                 sh 'apt-get update'
-
+                sh 'apt install -y mysql-client'
+                sh "mysql -h 172.19.0.2 -u $MYSQL_USERNAME -p $MYSQL_PASSWORD -e 'SELECT * FROM logins;'"
                 // Instale o Curl                
                 sh 'apt-get install -y curl'
 
