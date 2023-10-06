@@ -18,6 +18,8 @@ pipeline {
                 
                 sh "echo \"{'password': '$MYSQL_PASSWORD'}\" > mysql.json"
                 sh 'cat mysql.json'
+
+                sh 'apt-get update'
                     
                 // Instale o Curl                
                 sh 'apt-get install -y curl'
