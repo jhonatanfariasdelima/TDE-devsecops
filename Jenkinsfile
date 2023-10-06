@@ -79,7 +79,7 @@ pipeline {
 
         stage('DAST') {
             steps {
-                
+                sh 'node server.js &'
                 // Executa os testes (substitua este comando pelo seu próprio)
                 sh 'apt-get install -y nikto'
                 sh 'nikto -h localhost:8888'
