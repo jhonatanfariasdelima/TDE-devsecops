@@ -1,15 +1,10 @@
+require('dotenv').config();
 const Sequelize = require('sequelize');
 
-const MYSQL_PASSWORD = process.env.MYSQL_PASSWORD;
+const password = process.env.mysql;
+console.log(password);
 
-if (MYSQL_PASSWORD) {
-    console.log('A API_KEY é:', MYSQL_PASSWORD);
-} else {
-    console.error('A variável de ambiente API_KEY não está definida.');
-}
-
-// Crie uma instância do Sequelize usando as informações de configuração
-const connection = new Sequelize('banco', 'root', MYSQL_PASSWORD, {
+const connection = new Sequelize('banco','root', 'root',{
     host: '172.19.0.2',
     dialect: 'mysql'
 });

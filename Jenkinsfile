@@ -6,17 +6,13 @@ pipeline {
         }
     }
 
-    environment {
-        MYSQL_PASSWORD = credentials('1') // Recupera a senha do Jenkins Credentials Plugin
-    }
-
     stages {
         // Defina suas etapas aqui
 
         stage('dependencias') {
             steps {
                 
-
+                sh 'printenv'
                 sh 'apt-get update'
                     
                 // Instale o Curl                
