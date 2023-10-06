@@ -11,24 +11,24 @@ pipeline {
     stages {
         // Defina suas etapas aqui
 
-        stage('dependencias') {
-            steps {
+        // stage('dependencias') {
+        //     steps {
 
-                sh 'apt-get update'
+        //         sh 'apt-get update'
                     
-                // Instale o Curl                
-                sh 'apt-get install -y curl'
+        //         // Instale o Curl                
+        //         sh 'apt-get install -y curl'
 
-                // Instale o Node.js e o npm'
-                sh 'curl -fsSL https://deb.nodesource.com/setup_lts.x -o setup_lts.x'
-                sh 'bash setup_lts.x'
-                sh 'apt-get install -y nodejs'
+        //         // Instale o Node.js e o npm'
+        //         sh 'curl -fsSL https://deb.nodesource.com/setup_lts.x -o setup_lts.x'
+        //         sh 'bash setup_lts.x'
+        //         sh 'apt-get install -y nodejs'
                 
-                // Verifique a versão do Node.js
-                sh 'node --version'
+        //         // Verifique a versão do Node.js
+        //         sh 'node --version'
 
-            }
-        }
+        //     }
+        // }
 
         stage('Checkout') {
             steps {
