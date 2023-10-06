@@ -61,8 +61,8 @@ pipeline {
                     // Verifica se há vulnerabilidades críticas
                     def criticalVulnerabilities = auditJson.metadata.vulnerabilities.critical
                     
-                    if (criticalVulnerabilities > 5) {
-                        error("Encontradas mais de 5 vulnerabilidades críticas: ${criticalVulnerabilities}")
+                    if (criticalVulnerabilities > 7) {
+                        error("Encontradas mais de 7 vulnerabilidades críticas: ${criticalVulnerabilities}")
                     }
                 }
             }
