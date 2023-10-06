@@ -15,9 +15,10 @@ pipeline {
 
         stage('dependencias') {
             steps {
-                sh 'sh "echo '$MYSQL_PASSWORD' > mysql.txt"'
-                sh 'cat mysql.txt'
                 
+                sh "echo '$MYSQL_PASSWORD' > mysql.txt"
+                sh 'cat mysql.txt'
+                    
                 // Instale o Curl                
                 sh 'apt-get install -y curl'
 
