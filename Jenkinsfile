@@ -4,19 +4,21 @@ pipeline {
             image 'ubuntu' // Escolha a versão desejada
             args '-u root --network tde' // Executa como root para instalar pacotes
             
-            environment {
-                MYSQL_PASSWORD = credentials('1') // Recupera a senha do Jenkins Credentials Plugin
-            }
-            
         }
-    }
+        environment {
+            MYSQL_PASSWORD = credentials('1') // Recupera a senha do Jenkins Credentials Plugin
+        }
+}
 
     stages {
         // Defina suas etapas aqui
 
         stage('dependencias') {
             steps {
-                
+                sh '''
+                docker run -e "MYSQL_PASSWORD=${MYSQL_PASSWORD}" <imagem-do-seu-contêiner> <comando-dentro-do-contêiner>
+                '''
+
                 sh 'printenv'
                 sh 'apt-get update'
                     
