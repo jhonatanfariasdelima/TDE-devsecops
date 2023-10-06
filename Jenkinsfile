@@ -5,10 +5,12 @@ pipeline {
             args '-u root --network tde' // Executa como root para instalar pacotes
             
         }
-        environment {
-            MYSQL_PASSWORD = credentials('1') // Recupera a senha do Jenkins Credentials Plugin
-        }
-}
+        
+    }
+
+    environment {
+        MYSQL_PASSWORD = credentials('1') // Recupera a senha do Jenkins Credentials Plugin
+    }
 
     stages {
         // Defina suas etapas aqui
