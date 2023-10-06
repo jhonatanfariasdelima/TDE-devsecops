@@ -16,8 +16,6 @@ pipeline {
         stage('dependencias') {
             steps {
                 
-                sh "echo \"{'password': '$MYSQL_PASSWORD'}\" > mysql.json"
-                sh 'cat mysql.json'
 
                 sh 'apt-get update'
                     
