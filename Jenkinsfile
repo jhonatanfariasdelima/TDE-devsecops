@@ -72,11 +72,12 @@ pipeline {
                     echo "Vulnerabilidades Baixas: ${lowVulnerabilities}"
 
                     // Utilize catchError para evitar que a pipeline quebre
-                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                        if (criticalVulnerabilities > 10 || highVulnerabilities > 10) {
-                            error("Encontradas vulnerabilidades críticas ou altas.")
-                        }
+                    def VulResult = 'SUCCESS'
+                    if (criticalVulnerabilities > 10 || highVulnerabilities > 10) {
+                        VulResult = 'FAILURE'
+                        error("Encontradas vulnerabilidades críticas ou altas.")
                     }
+                    
                 }
             }
         }
@@ -94,18 +95,18 @@ pipeline {
 
     post {
         always {
-            // Finaliza a pipeline com o resultado definido na etapa de Análise de Dependências
-            currentBuild.result = currentBuild.result ?: 'SUCCESS'
-            echo 'Pipeline executado com sucesso!'
-        }
-        success {
-            // Ação a ser executada quando o pipeline for bem-sucedido
-            echo 'Pipeline executado com sucesso!'
-        }
-
-        failure {
-            // Ação a ser executada quando o pipeline falhar
-            echo 'Pipeline falhou!'
+            if('SUCCESS'){
+                success {
+                    // Ação a ser executada quando o pipeline for bem-sucedido
+                    echo 'Pipeline executado com sucesso!'
+                }
+            }else{
+                failure {
+                    // Ação a ser executada quando o pipeline falhar
+                    echo 'Pipeline falhou!'
+                }
+            }
+            
         }
     }
 }
