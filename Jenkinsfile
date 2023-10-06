@@ -3,9 +3,7 @@ pipeline {
         docker {
             image 'ubuntu' // Escolha a versão desejada
             args '-u root --network tde' // Executa como root para instalar pacotes
-            
         }
-        
     }
 
 
@@ -52,6 +50,16 @@ pipeline {
                 
             }
         }
+
+        stage('DAST') {
+            steps {
+                
+                // Executa os testes (substitua este comando pelo seu próprio)
+                sh 'apt-get install -y nikto'
+                sh 'nikto -h 0.0.0.0:8888'
+            }
+        }
+
     }
 
     post {
