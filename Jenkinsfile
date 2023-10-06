@@ -1,13 +1,13 @@
 pipeline {
+    environment {
+        MYSQL_PASSWORD = credentials('1') // Recupera a senha do Jenkins Credentials Plugin
+    }
+
     agent {
         docker {
             image 'ubuntu' // Escolha a versão desejada
-            args '-u root --network tde' // Executa como root para instalar pacotes
+            args '-u root --network tde -e MYSQL_PASSWORD='$MYSQL_PASSWORD'' // Executa como root para instalar pacotes
         }
-    }
-
-    environment {
-        MYSQL_PASSWORD = credentials('1') // Recupera a senha do Jenkins Credentials Plugin
     }
 
     stages {
