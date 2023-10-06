@@ -1,10 +1,10 @@
 pipeline {
-    agent {
-        docker {
-            image 'ubuntu' // Escolha a versão desejada
-            args '-u root --network tde' // Executa como root para instalar pacotes
-        }
-    }
+    // agent {
+    //     docker {
+    //         image 'ubuntu' // Escolha a versão desejada
+    //         args '-u root --network tde' // Executa como root para instalar pacotes
+    //     }
+    // }
 
 
     stages {
@@ -71,7 +71,6 @@ pipeline {
                     echo "Vulnerabilidades Médias: ${mediumVulnerabilities}"
                     echo "Vulnerabilidades Baixas: ${lowVulnerabilities}"
 
-                    currentBuild.result = 'SUCCESS'
                     
                 }
             }
