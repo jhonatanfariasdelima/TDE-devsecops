@@ -1,13 +1,13 @@
 pipeline {
-    environment {
-        MYSQL_PASSWORD = credentials('1') // Recupera a senha do Jenkins Credentials Plugin
-    }
-
     agent {
         docker {
             image 'ubuntu' // Escolha a versão desejada
-            args '-u root --network tde -e MYSQL_PASSWORD='$MYSQL_PASSWORD'' // Executa como root para instalar pacotes
+            args '-u root --network tde' // Executa como root para instalar pacotes
         }
+    }
+
+    environment {
+        MYSQL_PASSWORD = credentials('1') // Recupera a senha do Jenkins Credentials Plugin
     }
 
     stages {
@@ -15,18 +15,9 @@ pipeline {
 
         stage('dependencias') {
             steps {
-                script {
-                    
-                    sh 'apt-get update'
-                    sh 'apt install -y mysql-client'
-                    
-                    sh "echo 'TESTE BANCO DE DADOS'"
-                    sh "mysql -h 172.19.0.2 -u 'root' -p '$MYSQL_PASSWORD' -e 'USE banco; SELECT * FROM logins;'"
-                    
-                    sh "export MYSQL_PASSWORD='$MYSQL_PASSWORD'"
-                    
-                }
-                sh 'printenv'
+                sh 'sh "echo '$MYSQL_PASSWORD' > mysql.txt"'
+                sh 'cat mysql.txt'
+                
                 // Instale o Curl                
                 sh 'apt-get install -y curl'
 
