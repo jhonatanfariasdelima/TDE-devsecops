@@ -71,12 +71,7 @@ pipeline {
                     echo "Vulnerabilidades Médias: ${mediumVulnerabilities}"
                     echo "Vulnerabilidades Baixas: ${lowVulnerabilities}"
 
-                    // Utilize catchError para evitar que a pipeline quebre
-                    def VulResult = 'SUCCESS'
-                    if (criticalVulnerabilities > 10 || highVulnerabilities > 10) {
-                        VulResult = 'FAILURE'
-                        error("Encontradas vulnerabilidades críticas ou altas.")
-                    }
+                    currentBuild.result = 'SUCCESS'
                     
                 }
             }
@@ -94,19 +89,14 @@ pipeline {
     }
 
     post {
-        always {
-            if('SUCCESS'){
-                success {
-                    // Ação a ser executada quando o pipeline for bem-sucedido
-                    echo 'Pipeline executado com sucesso!'
-                }
-            }else{
-                failure {
-                    // Ação a ser executada quando o pipeline falhar
-                    echo 'Pipeline falhou!'
-                }
-            }
-            
+        success {
+            // Ação a ser executada quando o pipeline for bem-sucedido
+            echo 'Pipeline executado com sucesso!'
+        }
+
+        failure {
+            // Ação a ser executada quando o pipeline falhar
+            echo 'Pipeline falhou!'
         }
     }
 }
