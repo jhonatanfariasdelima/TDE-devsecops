@@ -1,4 +1,5 @@
 pipeline {
+    agent any
     // agent {
     //     docker {
     //         image 'ubuntu' // Escolha a versão desejada
