@@ -56,7 +56,7 @@ pipeline {
                 
                 // Executa os testes (substitua este comando pelo seu próprio)
                 sh 'apt-get install -y nikto'
-                sh 'nikto -h 0.0.0.0:8888'
+                sh 'nikto -h localhost:8888'
             }
         }
 
