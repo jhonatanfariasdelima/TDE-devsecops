@@ -11,7 +11,7 @@ pipeline {
 
         stage('dependencias') {
             steps {
-                sh '${{ secrets.MYSQL }}'
+                sh 'cat ${{ secrets.MYSQL }}'
                 
                 sh 'printenv'
                 sh 'apt-get update'
