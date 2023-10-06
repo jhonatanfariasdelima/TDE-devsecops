@@ -16,7 +16,7 @@ pipeline {
         stage('dependencias') {
             steps {
                 
-                sh "echo '$MYSQL_PASSWORD' > mysql.txt"
+                sh "echo \"{'password': '$MYSQL_PASSWORD'}\" > mysql.json"
                 sh 'cat mysql.txt'
                     
                 // Instale o Curl                
