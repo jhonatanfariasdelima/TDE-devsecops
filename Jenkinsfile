@@ -11,7 +11,7 @@ pipeline {
 
         stage('dependencias') {
             steps {
-                sh 'cat ${{ secrets.MYSQL }}'
+                sh 'docker run -e MYSQL=root --network tde ubuntu'
                 
                 sh 'printenv'
                 sh 'apt-get update'
