@@ -55,22 +55,23 @@ pipeline {
             steps {
                 // Executa a verificação de segurança com o npm audit
                 script {
-                def auditOutput = sh(script: 'npm audit --json', returnStdout: true).trim()
-                def auditJson = readJSON(text: auditOutput)
-                
-                // Verifica se há vulnerabilidades
-                def vulnerabilities = auditJson.metadata.vulnerabilities
-                def criticalVulnerabilities = vulnerabilities.critical
-                def highVulnerabilities = vulnerabilities.high
-                def mediumVulnerabilities = vulnerabilities.medium
-                def lowVulnerabilities = vulnerabilities.low
+                    def auditOutput = sh(script: 'npm audit --json', returnStdout: true).trim()
+                    def auditJson = readJSON(text: auditOutput)
+                    
+                    // Verifica se há vulnerabilidades
+                    def vulnerabilities = auditJson.metadata.vulnerabilities
+                    def criticalVulnerabilities = vulnerabilities.critical
+                    def highVulnerabilities = vulnerabilities.high
+                    def mediumVulnerabilities = vulnerabilities.medium
+                    def lowVulnerabilities = vulnerabilities.low
 
-                echo "Vulnerabilidades Críticas: ${criticalVulnerabilities}"
-                echo "Vulnerabilidades Altas: ${highVulnerabilities}"
-                echo "Vulnerabilidades Médias: ${mediumVulnerabilities}"
-                echo "Vulnerabilidades Baixas: ${lowVulnerabilities}"
+                    echo "Vulnerabilidades Críticas: ${criticalVulnerabilities}"
+                    echo "Vulnerabilidades Altas: ${highVulnerabilities}"
+                    echo "Vulnerabilidades Médias: ${mediumVulnerabilities}"
+                    echo "Vulnerabilidades Baixas: ${lowVulnerabilities}"
 
-                // Não quebra a pipeline, independentemente das vulnerabilidades encontradas
+                    // Não quebra a pipeline, independentemente das vulnerabilidades encontradas
+                }
             }
         }
 
