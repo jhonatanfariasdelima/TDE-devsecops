@@ -93,6 +93,11 @@ pipeline {
     }
 
     post {
+        always {
+            // Finaliza a pipeline com o resultado definido na etapa de Análise de Dependências
+            currentBuild.result = currentBuild.result ?: 'SUCCESS'
+            echo 'Pipeline executado com sucesso!'
+        }
         success {
             // Ação a ser executada quando o pipeline for bem-sucedido
             echo 'Pipeline executado com sucesso!'
