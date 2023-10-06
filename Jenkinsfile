@@ -51,6 +51,23 @@ pipeline {
             }
         }
 
+        stage('Análise de Dependências') {
+            steps {
+                // Executa a verificação de segurança com o npm audit
+                script {
+                    def auditOutput = sh(script: 'npm audit --json', returnStdout: true).trim()
+                    def auditJson = readJSON(text: auditOutput)
+                    
+                    // Verifica se há vulnerabilidades críticas
+                    def criticalVulnerabilities = auditJson.metadata.vulnerabilities.critical
+                    
+                    if (criticalVulnerabilities > 3) {
+                        error("Encontradas mais de 5 vulnerabilidades críticas: ${criticalVulnerabilities}")
+                    }
+                }
+            }
+        }
+
         stage('DAST') {
             steps {
                 
