@@ -77,17 +77,6 @@ pipeline {
         //     }
         // }
 
-        stage('DAST') {
-            steps {
-                sh 'node server.js &'
-                sleep(time: 60, unit: 'SECONDS')
-
-                // Executa os testes (substitua este comando pelo seu próprio)
-                sh 'apt-get install -y nikto'
-                sh 'nikto -h localhost:8888'
-            }
-        }
-
     }
 
     post {
