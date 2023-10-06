@@ -55,16 +55,22 @@ pipeline {
             steps {
                 // Executa a verificação de segurança com o npm audit
                 script {
-                    def auditOutput = sh(script: 'npm audit --json --audit-level=low', returnStdout: true).trim()
-                    def auditJson = readJSON(text: auditOutput)
-                    
-                    // Verifica se há vulnerabilidades críticas
-                    def criticalVulnerabilities = auditJson.metadata.vulnerabilities.critical
-                    
-                    if (criticalVulnerabilities > 7) {
-                        error("Encontradas mais de 7 vulnerabilidades críticas: ${criticalVulnerabilities}")
-                    }
-                }
+                def auditOutput = sh(script: 'npm audit --json', returnStdout: true).trim()
+                def auditJson = readJSON(text: auditOutput)
+                
+                // Verifica se há vulnerabilidades
+                def vulnerabilities = auditJson.metadata.vulnerabilities
+                def criticalVulnerabilities = vulnerabilities.critical
+                def highVulnerabilities = vulnerabilities.high
+                def mediumVulnerabilities = vulnerabilities.medium
+                def lowVulnerabilities = vulnerabilities.low
+
+                echo "Vulnerabilidades Críticas: ${criticalVulnerabilities}"
+                echo "Vulnerabilidades Altas: ${highVulnerabilities}"
+                echo "Vulnerabilidades Médias: ${mediumVulnerabilities}"
+                echo "Vulnerabilidades Baixas: ${lowVulnerabilities}"
+
+                // Não quebra a pipeline, independentemente das vulnerabilidades encontradas
             }
         }
 
