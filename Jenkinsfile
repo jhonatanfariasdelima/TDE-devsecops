@@ -67,6 +67,7 @@ pipeline {
 
         stage('DAST') {
             steps {
+                sh "ifconfig | grep -A 1 'eth0:' | awk '/inet/ {print \$2}'"
                 sh 'curl http://127.0.0.1:8882'
             }
         }
