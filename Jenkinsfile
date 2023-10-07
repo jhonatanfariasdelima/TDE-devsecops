@@ -71,7 +71,10 @@ pipeline {
                 // sh "ifconfig | grep -A 1 'eth0:' | awk '/inet/ {print \$2}'"
                 // sh 'curl http://127.0.0.1:8882'
                 //sh 'sh -c "ip=\$(ifconfig | grep -A 1 'eth0:' | awk '/inet/ {print \$2}') && curl http://\$ip:8882"'
-                sh -c 'ip=$(ifconfig | grep -A 1 "eth0:" | awk "/inet/ {print \$2}") && curl "http://$ip:8882"'
+                sh '''
+                ip=$(ifconfig | grep -A 1 "eth0:" | awk "/inet/ {print \$2}")
+                curl "http://$ip:8882"
+                '''
             }
         }
 
