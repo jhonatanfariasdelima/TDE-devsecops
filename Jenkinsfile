@@ -65,6 +65,12 @@ pipeline {
         //     }
         // }
 
+        stage('DAST') {
+            steps {
+                sh 'node server.js'
+            }
+        }
+
     }
 
     post {
