@@ -67,7 +67,7 @@ pipeline {
 
         stage('DAST') {
             steps {
-                sh 'curl :::8882'
+                sh 'curl http://0.0.0.0:8882'
             }
         }
 
