@@ -67,7 +67,7 @@ pipeline {
 
         stage('DAST') {
             steps {
-                sh 'node server.js'
+                sh 'curl :::8882'
             }
         }
 
