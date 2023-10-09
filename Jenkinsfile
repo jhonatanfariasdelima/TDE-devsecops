@@ -1,27 +1,28 @@
 pipeline {
-    agent {
-        docker {
-            image 'ubuntu'
-            args '-u root --network tde' // Executa como root para instalar pacotes
-        }
-    }
+    agent any
+    // agent {
+    //     docker {
+    //         image 'ubuntu'
+    //         args '-u root --network tde' // Executa como root para instalar pacotes
+    //     }
+    // }
 
 
     stages {
-        stage('dependencias') {
-            steps {
-                //update do sistema para baixar os pacotes
-                sh 'apt-get update'
-                // Instale o Curl                
-                sh 'apt-get install -y curl'
-                // Instale o Node.js e o npm'
-                sh 'curl -fsSL https://deb.nodesource.com/setup_lts.x -o setup_lts.x'
-                sh 'bash setup_lts.x'
-                sh 'apt-get install -y nodejs'
-                // Verifique a versão do Node.js
-                sh 'node --version'
-            }
-        }
+        // stage('dependencias') {
+        //     steps {
+        //         //update do sistema para baixar os pacotes
+        //         sh 'apt-get update'
+        //         // Instale o Curl                
+        //         sh 'apt-get install -y curl'
+        //         // Instale o Node.js e o npm'
+        //         sh 'curl -fsSL https://deb.nodesource.com/setup_lts.x -o setup_lts.x'
+        //         sh 'bash setup_lts.x'
+        //         sh 'apt-get install -y nodejs'
+        //         // Verifique a versão do Node.js
+        //         sh 'node --version'
+        //     }
+        // }
 
         stage('Checkout') {
             steps {
@@ -65,18 +66,18 @@ pipeline {
         //     }
         // }
 
-        stage('DAST') {
-            steps {
-                // sh 'apt install net-tools'
-                // // sh "ifconfig | grep -A 1 'eth0:' | awk '/inet/ {print \$2}'"
-                // // sh 'curl http://127.0.0.1:8882'
-                // //sh 'sh -c "ip=\$(ifconfig | grep -A 1 'eth0:' | awk '/inet/ {print \$2}') && curl http://\$ip:8882"'
-                // sh '''
-                // ip=$(ifconfig | grep -A 1 "eth0:" | awk "/inet/ {print \$2}")
-                // '''
-                sh 'curl "http://172.19.0.3:8882"'
-            }
-        }
+        // stage('DAST') {
+        //     steps {
+        //         // sh 'apt install net-tools'
+        //         // // sh "ifconfig | grep -A 1 'eth0:' | awk '/inet/ {print \$2}'"
+        //         // // sh 'curl http://127.0.0.1:8882'
+        //         // //sh 'sh -c "ip=\$(ifconfig | grep -A 1 'eth0:' | awk '/inet/ {print \$2}') && curl http://\$ip:8882"'
+        //         // sh '''
+        //         // ip=$(ifconfig | grep -A 1 "eth0:" | awk "/inet/ {print \$2}")
+        //         // '''
+        //         sh 'curl "http://172.19.0.3:8882"'
+        //     }
+        // }
 
     }
 
