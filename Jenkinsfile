@@ -53,7 +53,7 @@ pipeline {
 
         stage('SAST') {
             steps {
-                sh 'horusec start -p ./'
+                sh 'horusec start -p ./ -D'
             }
         }
 
