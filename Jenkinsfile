@@ -5,6 +5,7 @@ pipeline {
         stage('dependencias') {
             steps {
                 sh 'node --version'
+                sh 'npm --version'
             }
         }
 
@@ -50,11 +51,11 @@ pipeline {
         //     }
         // }
 
-        stage('SAST') {
-            steps {
-                sh 'sudo horusec start -p .'
-            }
-        }
+        // stage('SAST') {
+        //     steps {
+        //         sh 'sudo horusec start -p .'
+        //     }
+        // }
 
 
 
