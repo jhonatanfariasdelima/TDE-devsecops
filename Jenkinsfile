@@ -51,11 +51,11 @@ pipeline {
         //     }
         // }
 
-        // stage('SAST') {
-        //     steps {
-        //         sh 'sudo horusec start -p .'
-        //     }
-        // }
+        stage('SAST') {
+            steps {
+                sh 'horusec start -p .'
+            }
+        }
 
 
 
