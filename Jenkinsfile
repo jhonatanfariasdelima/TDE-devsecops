@@ -52,7 +52,7 @@ pipeline {
 
         stage('SAST') {
             steps {
-                sh 'echo "ubuntu" | sudo -S horusec start -p .'
+                sh 'horusec start -p .'
             }
         }
 
