@@ -1,6 +1,8 @@
 let app = require("../index");
 let supertest = require("supertest");
 let request = supertest(app);
+const { exec } = require('child_process');
+
 
 test("A aplicação deveria responder",() => {
 
