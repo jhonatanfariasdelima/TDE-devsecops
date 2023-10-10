@@ -27,7 +27,8 @@ pipeline {
             steps{
                 script {
                     def minhaVariavel = env.MYSQL
-                        echo "O valor de MINHA_VARIAVEL é: ${minhaVariavel}"
+                        //echo "O valor de MINHA_VARIAVEL é: ${minhaVariavel}"
+                        sh 'export MYSQL=${minhaVariavel}'
                 }
             }
         }
