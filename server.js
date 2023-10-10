@@ -1,5 +1,5 @@
 let app = require("./index");
 
-app.listen(1000, () => {
-    app.listen(1000, ()=>{console.log("App rodando!")});
+app.listen(8882, () => {
+    app.listen(8882, ()=>{console.log("App rodando!")});
 })

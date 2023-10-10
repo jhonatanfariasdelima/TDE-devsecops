@@ -42,6 +42,25 @@ test("Teste no login de usuario NÃO cadastrado",async () => {
     });
 })
 
+test("Teste DAST",async () => {
+    await sleep(2000);
+    const comando = 'nikto -h http://localhost:8882';
+
+    exec(comando, (error, stdout, stderr) => {
+        if (error) {
+          console.error(`Erro: ${error.message}`);
+          return;
+        }
+        
+        if (stderr) {
+          console.error(`Erro padrão: ${stderr}`);
+          return;
+        }
+      
+        console.log(`Saída padrão: ${stdout}`);
+      });
+})
+
 
 
 
