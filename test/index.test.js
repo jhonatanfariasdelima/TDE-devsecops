@@ -44,25 +44,30 @@ test("Teste no login de usuario NÃO cadastrado",async () => {
     });
 })
 
-test("Teste DAST",async () => {
+test("Teste DAST", async () => {
     await sleep(2000);
-    const comando = 'nikto -h http://localhost:8882';
-
-    exec(comando, (error, stdout, stderr) => {
+  
+    const execPromise = new Promise((resolve, reject) => {
+      const comando = 'nikto -h http://localhost:8882';
+  
+      exec(comando, (error, stdout, stderr) => {
         if (error) {
           console.error(`Erro: ${error.message}`);
+          reject(error);
           return;
         }
-        
+  
         if (stderr) {
           console.error(`Erro padrão: ${stderr}`);
+          reject(stderr);
           return;
         }
-      
+  
         console.log(`Saída padrão: ${stdout}`);
+        resolve(stdout);
       });
-})
-
-
-
-
+    });
+  
+    await execPromise; // Espera que a execução do comando seja concluída antes de finalizar o teste
+});
+  
