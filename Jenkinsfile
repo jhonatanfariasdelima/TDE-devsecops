@@ -26,8 +26,8 @@ pipeline {
         stage('Gerenciamento de segredos'){
             steps{
                 script {
+                    // Busca e define a variavel de ambiente do Jenkins
                     def minhaVariavel = env.MYSQL
-                        //echo "O valor de MINHA_VARIAVEL é: ${minhaVariavel}"
                         sh 'export MYSQL=${minhaVariavel}'
                 }
             }
@@ -54,11 +54,11 @@ pipeline {
             }
         }
 
-        // stage('DAST'){
-        //     steps {
-        //         sh ''
-        //     }
-        // }
+        stage('DAST'){
+            steps {
+                sh 'nikto -h 127.0.0.1:8882'
+            }
+        }
 
     }
 
