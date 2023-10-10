@@ -25,8 +25,10 @@ pipeline {
 
         stage('Gerenciamento de segredos'){
             steps{
-                def minhaVariavel = env.MYSQL
-                    echo "O valor de MINHA_VARIAVEL é: ${minhaVariavel}"
+                script {
+                    def minhaVariavel = env.MYSQL
+                        echo "O valor de MINHA_VARIAVEL é: ${minhaVariavel}"
+                }
             }
         }
 
