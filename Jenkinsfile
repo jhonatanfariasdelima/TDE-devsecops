@@ -23,6 +23,13 @@ pipeline {
             }
         }
 
+        stage('Gerenciamento de segredos'){
+            steps{
+                def minhaVariavel = env.MYSQL
+                    echo "O valor de MINHA_VARIAVEL é: ${minhaVariavel}"
+            }
+        }
+
         stage('Testes Unitários') {
             steps {
                 // Executa os testes unitários
@@ -44,7 +51,11 @@ pipeline {
             }
         }
 
-
+        // stage('DAST'){
+        //     steps {
+        //         sh ''
+        //     }
+        // }
 
     }
 
