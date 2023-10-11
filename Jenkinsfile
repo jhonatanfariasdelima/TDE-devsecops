@@ -36,7 +36,7 @@ pipeline {
         stage('Testes Unitários') {
             steps {
                 // Executa os testes unitários
-                sh 'npm run test --detectOpenHandles'
+                sh 'npm run test --forceExit'
                 
             }
         }
