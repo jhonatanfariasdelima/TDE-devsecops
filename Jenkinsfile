@@ -43,13 +43,14 @@ pipeline {
         stage('Testes Unitários') {
             steps {
                 // Executa os testes unitários
-                sh 'npm run test --forceExit'
+                sh 'npm run test'
                 
             }
         }
 
         stage('SAST') {
             steps {
+                sh 'sleep 20'
                 sh 'horusec start -p ./ -D'
             }
         }
