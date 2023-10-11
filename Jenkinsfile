@@ -33,14 +33,6 @@ pipeline {
             }
         }
 
-        stage('Testes Unitários') {
-            steps {
-                // Executa os testes unitários
-                sh 'npm run test --forceExit'
-                
-            }
-        }
-
         stage('Análise de Dependências') {
             steps {
                 // Executa a verificação de segurança com o npm audit
@@ -59,6 +51,14 @@ pipeline {
                 sh 'node index.js && nikto -h 127.0.0.1:8882'
                 
 
+            }
+        }
+
+        stage('Testes Unitários') {
+            steps {
+                // Executa os testes unitários
+                sh 'npm run test --forceExit'
+                
             }
         }
 
