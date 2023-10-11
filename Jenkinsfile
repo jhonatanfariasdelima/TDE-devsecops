@@ -47,13 +47,7 @@ pipeline {
             }
         }
 
-        stage('DAST'){
-            steps {
-                sh 'node index.js &'
-                sh 'sleep 20'
-                sh 'nikto -h http://localhost:8888/'
-            }
-        }
+        
 
         stage('Testes Unitários') {
             steps {
@@ -62,6 +56,14 @@ pipeline {
             }
         }
 
+        stage('DAST'){
+            steps {
+                sh 'node index.js &'
+                sh 'sleep 20'
+                sh 'nikto -h http://localhost:8888/'
+            }
+        }
+        
     }
 
     post {
