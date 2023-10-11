@@ -48,7 +48,7 @@ pipeline {
 
         stage('DAST'){
             steps {
-                sh 'node index.js && nikto -h 127.0.0.1:8882'
+                sh 'node index.js && nikto -h 127.0.0.1:8888'
                 
 
             }
