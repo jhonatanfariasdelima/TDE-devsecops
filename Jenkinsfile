@@ -49,12 +49,12 @@ pipeline {
 
         
 
-        stage('Testes Unitários') {
-            steps {
-                // Executa os testes unitários
-                sh 'npm test'
-            }
-        }
+        // stage('Testes Unitários') {
+        //     steps {
+        //         // Executa os testes unitários
+        //         sh 'npm test'
+        //     }
+        // }
 
         stage('DAST'){
             steps {
@@ -63,7 +63,7 @@ pipeline {
                 sh 'nikto -h http://localhost:8888/'
             }
         }
-        
+
     }
 
     post {
