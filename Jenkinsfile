@@ -58,8 +58,7 @@ pipeline {
         stage('Testes Unitários') {
             steps {
                 // Executa os testes unitários
-                sh 'npm run test &'
-                
+                sh 'npm run test'
             }
         }
 
