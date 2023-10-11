@@ -49,7 +49,7 @@ pipeline {
         stage('DAST'){
             steps {
                 sh 'node index.js &'
-                sh 'wget http://localhost:8888'
+                sh 'nikto -h http://localhost:8888/'
                 
 
             }
