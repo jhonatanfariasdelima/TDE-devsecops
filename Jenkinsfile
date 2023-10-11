@@ -40,14 +40,6 @@ pipeline {
             }
         }
 
-        stage('Testes Unitários') {
-            steps {
-                // Executa os testes unitários
-                sh 'npm run test &'
-                
-            }
-        }
-
         stage('SAST') {
             steps {
                 sh 'sleep 20'
@@ -60,6 +52,14 @@ pipeline {
                 sh 'node index.js &'
                 sh 'sleep 20'
                 sh 'nikto -h http://localhost:8888/'
+            }
+        }
+
+        stage('Testes Unitários') {
+            steps {
+                // Executa os testes unitários
+                sh 'npm run test &'
+                
             }
         }
 
