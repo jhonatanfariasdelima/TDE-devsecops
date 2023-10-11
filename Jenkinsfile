@@ -40,6 +40,14 @@ pipeline {
             }
         }
 
+        stage('Testes Unitários') {
+            steps {
+                // Executa os testes unitários
+                sh 'npm run test --forceExit'
+                
+            }
+        }
+
         stage('SAST') {
             steps {
                 sh 'horusec start -p ./ -D'
@@ -49,17 +57,8 @@ pipeline {
         stage('DAST'){
             steps {
                 sh 'node index.js &'
+                sh 'sleep 20'
                 sh 'nikto -h http://localhost:8888/'
-                
-
-            }
-        }
-
-        stage('Testes Unitários') {
-            steps {
-                // Executa os testes unitários
-                sh 'npm run test --forceExit'
-                
             }
         }
 
