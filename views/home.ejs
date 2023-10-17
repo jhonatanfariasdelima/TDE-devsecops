@@ -4,11 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .patient-card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            width: 300px;
+            display: inline-block;
+        }
+
+        .patient-info {
+            font-weight: bold;
+        }
+
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+        .welcome {
+            float: left,center;
+            
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li class="welcome "><h3>Bem vindo Dr. <%= nome %></h3></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <h1>Home</h1>
-    <p>Usuário: <%= nome %></p>
+    <h1>Visualização de Pacientes</h1>
+    
+
+    <div class="patient-card">
+        <p class="patient-info">Nome: João da Silva</p>
+        <p class="patient-info">Idade: 45 anos</p>
+        <p class="patient-info">Gênero: Masculino</p>
+        <p class="patient-info">Pressão Sanguínea: 120/80 mmHg</p>
+        <p class="patient-info">Diagnóstico: Hipertensão</p>
+        <a href="Detalhes.html">Detalhes</a>
+    </div>
+
+    <div class="patient-card">
+        <p class="patient-info">Nome: Maria da Silva</p>
+        <p class="patient-info">Idade: 35 anos</p>
+        <p class="patient-info">Gênero: Feminino</p>
+        <p class="patient-info">Pressão Sanguínea: 110/70 mmHg</p>
+        <p class="patient-info">Diagnóstico: Check-up de rotina</p>
+        <a href="Detalhes.html">Detalhes</a>
+    </div>
+    
+    <div class="patient-card">
+        <p class="patient-info">Nome: Jose da Silva</p>
+        <p class="patient-info">Idade: 40 anos</p>
+        <p class="patient-info">Gênero: Feminino</p>
+        <p class="patient-info">Pressão Sanguínea: 110/70 mmHg</p>
+        <p class="patient-info">Diagnóstico: Exame de ...</p>
+        <a href="Detalhes.html">Detalhes</a>
+    </div>
+    
+    <div class="patient-card">
+        <p class="patient-info">Nome: ze da manga</p>
+        <p class="patient-info">Idade: 69 anos</p>
+        <p class="patient-info">Gênero: Feminino</p>
+        <p class="patient-info">Pressão Sanguínea: 100/80 mmHg</p>
+        <p class="patient-info">Diagnóstico: Tique nervoso</p>
+        <a href="Detalhes.html">Detalhes</a>
+    </div>
     
 </body>
 </html>
