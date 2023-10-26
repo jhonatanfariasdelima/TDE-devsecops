@@ -54,7 +54,7 @@ pipeline {
             }
         }
 
-
+        // DAST na implantacao 
         stage('DAST'){
             steps {
                 sh 'node index.js &'
@@ -63,9 +63,26 @@ pipeline {
             }
         }
 
-        // stage(''){
+        // Docker file
+        // stage('envelopamento'){
         //     steps{
-                
+        //        
+        //     }
+        // }
+
+
+        // Docker file -> dokcer push
+        // disponibilizar uma imagem pra rodar a aplicacao
+        // stage('entrega'){
+        //     steps{
+        //        
+        //     }
+        // }
+
+        // usar a imagem do docker (kubernets) 
+        // stage('implantacao'){
+        //     steps{
+        //        
         //     }
         // }
 
