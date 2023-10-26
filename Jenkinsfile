@@ -40,6 +40,13 @@ pipeline {
             }
         }
 
+        stage('Testes Unitários') {
+            steps {
+                // Executa os testes unitários
+                sh 'npx jest --forceExit'
+            }
+        }
+
         stage('SAST') {
             steps {
                 sh 'sleep 20'
@@ -47,13 +54,6 @@ pipeline {
             }
         }
 
-        
-        stage('Testes Unitários') {
-            steps {
-                // Executa os testes unitários
-                sh 'npx jest --forceExit'
-            }
-        }
 
         stage('DAST'){
             steps {
