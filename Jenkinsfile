@@ -51,7 +51,7 @@ pipeline {
         stage('Testes Unitários') {
             steps {
                 // Executa os testes unitários
-                sh 'npm test'
+                sh 'npx jest --forceExit'
             }
         }
 
@@ -62,6 +62,12 @@ pipeline {
                 sh 'nikto -h http://localhost:8888/'
             }
         }
+
+        // stage(''){
+        //     steps{
+                
+        //     }
+        // }
 
     }
 
