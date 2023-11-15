@@ -1,5 +1,9 @@
 #!/bin/bash
 
+pwd
+
+ls
+
 # Exibir a versão do Node.js
 node --version
 
