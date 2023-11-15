@@ -1,10 +1,10 @@
 #!/bin/bash
 
 ls -la
-
+echo 'app'
 cd app 
 ls -la
-
+echo 'data'
 cd database 
 ls -la
 
