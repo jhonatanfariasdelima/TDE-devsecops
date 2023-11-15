@@ -34,5 +34,7 @@ RUN bash setup_lts.x && apt-get install -y nodejs
 EXPOSE 8888
 
 # Comando para executar o aplicativo quando o contêiner for iniciado
+RUN 'node --version'
 RUN 'npm install'
+RUN 'npx jest --forceExit'
 CMD ["node", "index.js"]
