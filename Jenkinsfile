@@ -19,7 +19,6 @@ pipeline {
         stage('Preparar Ambiente') {
             steps {
                 // Inicia o projeto node
-                sh 'cd app'
                 sh 'npm install'
             }
         }

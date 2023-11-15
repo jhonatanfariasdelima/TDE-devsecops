@@ -14,7 +14,16 @@ RUN apt-get update && apt-get upgrade -y
 WORKDIR /app
 
 # Copie os arquivos necessários para o diretório de trabalho
-COPY app/ /app
+COPY database/ /app
+COPY node_modules/ /app
+COPY test/ /app
+COPY views/ /app
+COPY index.js /app
+COPY jest.config.js /app
+COPY package-lock.json /app
+COPY package.json /app
+COPY Jenkinsfile /app
+
 
 # Instale as dependências do aplicativo
 RUN apt-get install curl -y
