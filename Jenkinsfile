@@ -63,27 +63,13 @@ pipeline {
             }
         }
 
-        stage('zip'){
-            steps {
-                sh 'zip -r my_archive.zip TDE-DEVSECOPS'
+        //Docker file -> dokcer push
+        disponibilizar uma imagem pra rodar a aplicacao
+        stage('entrega'){
+            steps{
+               sh 'docker build -t tde-jhonatan-eduardo ../.'
             }
         }
-
-        // Docker file
-        // stage('envelopamento'){
-        //     steps{
-        //        
-        //     }
-        // }
-
-
-        // Docker file -> dokcer push
-        // disponibilizar uma imagem pra rodar a aplicacao
-        // stage('entrega'){
-        //     steps{
-        //        
-        //     }
-        // }
 
         // usar a imagem do docker (kubernets) 
         // stage('implantacao'){

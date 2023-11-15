@@ -14,7 +14,7 @@ RUN apt-get update && apt-get upgrade -y
 WORKDIR /app
 
 # Copie os arquivos necessários para o diretório de trabalho
-COPY TDE-devsecops /app
+COPY TDE-devsecops/ /app
 
 # Instale as dependências do aplicativo
 RUN apt-get install curl -y
