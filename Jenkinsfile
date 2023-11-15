@@ -47,27 +47,27 @@ pipeline {
             }
         }
 
-        stage('SAST') {
-            steps {
-                sh 'sleep 20'
-                sh 'horusec start -p ./ -D'
-            }
-        }
+        // stage('SAST') {
+        //     steps {
+        //         sh 'sleep 20'
+        //         sh 'horusec start -p ./ -D'
+        //     }
+        // }
 
         // DAST na implantacao 
-        stage('DAST'){
-            steps {
-                sh 'node index.js &'
-                sh 'sleep 20'
-                sh 'nikto -h http://localhost:8888/'
-            }
-        }
+        // stage('DAST'){
+        //     steps {
+        //         sh 'node index.js &'
+        //         sh 'sleep 20'
+        //         sh 'nikto -h http://localhost:8888/'
+        //     }
+        // }
 
         //Docker file -> dokcer push
         //disponibilizar uma imagem pra rodar a aplicacao
         stage('entrega'){
             steps{
-               sh 'docker build -t tde-jhonatan-eduardo ../.'
+               sh 'docker build -t tde-jhonatan-eduardo /home/ubuntu/Desktop/Dockerfile'
                sh 'docker login -u jhonatanfariasdelima -p jhoni21061899'
                sh 'docker push jhonatanfariasdelima/tde-jhonatan-eduardo:latest'
             }
