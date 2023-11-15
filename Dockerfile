@@ -18,7 +18,6 @@ RUN apt install git -y
 
 RUN git clone https://github.com/jhonatanfariasdelima/TDE-devsecops.git
 
-
 # Instale as dependências do aplicativo
 RUN apt-get install curl -y
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x -o setup_lts.x
@@ -28,7 +27,5 @@ RUN bash setup_lts.x && apt-get install -y nodejs
 EXPOSE 8888
 
 # Comando para executar o aplicativo quando o contêiner for iniciado
-#RUN bash ./run.sh
-RUN cd TDE-devsecops
 RUN cd TDE-devsecops && npm install
 RUN cd TDE-devsecops && node index.js
