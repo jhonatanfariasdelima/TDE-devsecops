@@ -64,7 +64,7 @@ pipeline {
         }
 
         //Docker file -> dokcer push
-        disponibilizar uma imagem pra rodar a aplicacao
+        //disponibilizar uma imagem pra rodar a aplicacao
         stage('entrega'){
             steps{
                sh 'docker build -t tde-jhonatan-eduardo ../.'
