@@ -31,4 +31,4 @@ EXPOSE 8888
 #RUN bash ./run.sh
 RUN cd TDE-devsecops
 RUN cd TDE-devsecops && npm install
-RUN cd TDE-devsecops && node index.js
+RUN cd TDE-devsecops && ls -la
