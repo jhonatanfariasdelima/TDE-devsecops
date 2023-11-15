@@ -14,17 +14,9 @@ RUN apt-get update && apt-get upgrade -y
 WORKDIR /app
 
 # Copie os arquivos necessários para o diretório de trabalho
-COPY database-conf/ /app
-COPY node_modules/ /app
-COPY test/ /app
-COPY views/ /app
-COPY index.js /app
-COPY jest.config.js /app
-COPY package-lock.json /app
-COPY package.json /app
-COPY Jenkinsfile /app
-copy run.sh /app
-RUN chmod +x run.sh
+RUN apt install git -y
+
+RUN git clone https://github.com/jhonatanfariasdelima/TDE-devsecops.git
 
 
 # Instale as dependências do aplicativo
@@ -37,6 +29,6 @@ EXPOSE 8888
 
 # Comando para executar o aplicativo quando o contêiner for iniciado
 #RUN bash ./run.sh
-
+RUN cd TDE-devsecops
 RUN npm install
 RUN ls
