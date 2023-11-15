@@ -30,6 +30,5 @@ EXPOSE 8888
 # Comando para executar o aplicativo quando o contêiner for iniciado
 #RUN bash ./run.sh
 RUN cd TDE-devsecops
-RUN ls -la
 RUN cd TDE-devsecops && npm install
-RUN ls
+RUN cd TDE-devsecops && npx jest --forceExit
