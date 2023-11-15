@@ -1,8 +1,6 @@
 #!/bin/bash
 
-pwd
-
-ls
+cd app
 
 # Exibir a versão do Node.js
 node --version
