@@ -1,6 +1,5 @@
 #!/bin/bash
 
-cd app
 ls
 
 # Exibir a versão do Node.js
@@ -13,4 +12,4 @@ npm install
 #npx jest --forceExit
 
 # Comando para iniciar o aplicativo Node.js
-#node index.js
+node index.js
