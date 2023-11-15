@@ -39,3 +39,4 @@ EXPOSE 8888
 #RUN bash ./run.sh
 
 RUN npm install
+RUN ls
