@@ -23,18 +23,17 @@ COPY jest.config.js /app
 COPY package-lock.json /app
 COPY package.json /app
 COPY Jenkinsfile /app
+copy run.sh /app
+RUN chmod +x run.sh
 
 
 # Instale as dependências do aplicativo
 RUN apt-get install curl -y
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x -o setup_lts.x
 RUN bash setup_lts.x && apt-get install -y nodejs
-RUN 'node --version'
-RUN 'npm install'
 
 # Exponha a porta que o aplicativo irá utilizar
 EXPOSE 8888
 
 # Comando para executar o aplicativo quando o contêiner for iniciado
-RUN 'npx jest --forceExit'
-CMD ["node", "index.js"]
+RUN bash ./run.sh
