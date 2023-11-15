@@ -11,19 +11,19 @@ USER root
 RUN apt-get update && apt-get upgrade -y
 
 # Defina o diretório de trabalho no contêiner
-WORKDIR /
+WORKDIR /app
 
 # Copie os arquivos necessários para o diretório de trabalho
-COPY database/ /
-COPY node_modules/ /
-COPY test/ /
-COPY views/ /
-COPY index.js /
-COPY jest.config.js /
-COPY package-lock.json /
-COPY package.json /
-COPY Jenkinsfile /
-copy run.sh /
+COPY database/ /app
+COPY node_modules/ /app
+COPY test/ /app
+COPY views/ /app
+COPY index.js /app
+COPY jest.config.js /app
+COPY package-lock.json /app
+COPY package.json /app
+COPY Jenkinsfile /app
+copy run.sh /app
 RUN chmod +x run.sh
 
 

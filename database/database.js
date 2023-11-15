@@ -1,9 +1,17 @@
-const Sequelize = require('sequelize');
-//const minhaVariavel = process.env.MYSQL;
+const Sequelize  =require("sequelize");
+const connection = require("./database");
 
-const connection = new Sequelize('banco','root', `root`,{
-    host: '172.17.0.2',
-    dialect: 'mysql'
+const Login = connection.define('login',{
+    user:{
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    password:{
+        type: Sequelize.STRING
+    }
 });
 
-module.exports = connection;
+Login.sync({force: false}).then(() => {});
+
+module.exports = Login;
+

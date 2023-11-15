@@ -14,3 +14,4 @@ const Login = connection.define('login',{
 Login.sync({force: false}).then(() => {});
 
 module.exports = Login;
+
