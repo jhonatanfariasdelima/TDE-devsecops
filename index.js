@@ -2,8 +2,8 @@ const express = require("express");
 const session = require("express-session");
 const app = express();
 const bodyParser = require("body-parser");
-const connection = require("./database-conf/database");
-const loginModel = require("./database-conf/Login");
+const connection = require("./database/database");
+const loginModel = require("./database/Login");
 
 //session
 app.use(session({
