@@ -63,6 +63,10 @@ pipeline {
             }
         }
 
+        stage('zip'){
+            sh 'zip -r my_archive.zip TDE-DEVSECOPS'
+        }
+
         // Docker file
         // stage('envelopamento'){
         //     steps{
