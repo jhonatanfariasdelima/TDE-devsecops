@@ -69,7 +69,7 @@ pipeline {
             steps{
                 sh 'docker build -t tde-jhonatan-eduardo .'
                 sh 'docker login -u jhonatanfariasdelima -p jhoni21061899'
-                sh 'docker push jhonatanfariasdelima/tde-jhonatan-eduardo:latest'
+                sh 'docker push jhonatanfariasdelima/tde-jhonatan-eduardo'
             }
         }
 
