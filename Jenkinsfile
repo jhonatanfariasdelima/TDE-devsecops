@@ -67,7 +67,6 @@ pipeline {
         //disponibilizar uma imagem pra rodar a aplicacao
         stage('entrega'){
             steps{
-                sh 'cd ..'
                 sh 'docker build -t tde-jhonatan-eduardo .'
                 sh 'docker login -u jhonatanfariasdelima -p jhoni21061899'
                 sh 'docker push jhonatanfariasdelima/tde-jhonatan-eduardo:latest'
