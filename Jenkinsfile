@@ -33,12 +33,12 @@ pipeline {
             }
         }
 
-        // stage('Análise de Dependências') {
-        //     steps {
-        //         // Executa a verificação de segurança com o npm audit
-        //         sh 'npm audit || true'
-        //     }
-        // }
+        stage('Análise de Dependências') {
+            steps {
+                // Executa a verificação de segurança com o npm audit
+                sh 'npm audit || true'
+            }
+        }
 
         // stage('Testes Unitários') {
         //     steps {
