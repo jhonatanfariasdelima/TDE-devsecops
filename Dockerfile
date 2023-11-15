@@ -36,5 +36,6 @@ RUN bash setup_lts.x && apt-get install -y nodejs
 EXPOSE 8888
 
 # Comando para executar o aplicativo quando o contêiner for iniciado
-RUN pwd
-RUN bash ./run.sh
+#RUN bash ./run.sh
+
+RUN npm install
