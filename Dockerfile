@@ -14,7 +14,7 @@ RUN apt-get update && apt-get upgrade -y
 WORKDIR /app
 
 # Copie os arquivos necessários para o diretório de trabalho
-COPY database/ /app
+COPY database-conf/ /app
 COPY node_modules/ /app
 COPY test/ /app
 COPY views/ /app
