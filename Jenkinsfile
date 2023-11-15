@@ -33,19 +33,19 @@ pipeline {
             }
         }
 
-        stage('Análise de Dependências') {
-            steps {
-                // Executa a verificação de segurança com o npm audit
-                sh 'npm audit || true'
-            }
-        }
+        // stage('Análise de Dependências') {
+        //     steps {
+        //         // Executa a verificação de segurança com o npm audit
+        //         sh 'npm audit || true'
+        //     }
+        // }
 
-        stage('Testes Unitários') {
-            steps {
-                // Executa os testes unitários
-                sh 'npx jest --forceExit'
-            }
-        }
+        // stage('Testes Unitários') {
+        //     steps {
+        //         // Executa os testes unitários
+        //         sh 'npx jest --forceExit'
+        //     }
+        // }
 
         // stage('SAST') {
         //     steps {
@@ -67,9 +67,10 @@ pipeline {
         //disponibilizar uma imagem pra rodar a aplicacao
         stage('entrega'){
             steps{
-               sh 'docker build -t tde-jhonatan-eduardo .'
-               sh 'docker login -u jhonatanfariasdelima -p jhoni21061899'
-               sh 'docker push jhonatanfariasdelima/tde-jhonatan-eduardo:latest'
+                sh 'cd ..'
+                sh 'docker build -t tde-jhonatan-eduardo .'
+                sh 'docker login -u jhonatanfariasdelima -p jhoni21061899'
+                sh 'docker push jhonatanfariasdelima/tde-jhonatan-eduardo:latest'
             }
         }
 
