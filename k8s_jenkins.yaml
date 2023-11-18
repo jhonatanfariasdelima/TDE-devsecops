@@ -23,9 +23,9 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: 8080
-      targetPort: 8080
-      nodePort: 30000
+    - port: 8888
+      targetPort: 8888
+      nodePort: 8888
   selector:
     app: jenkins
 ---
@@ -52,9 +52,9 @@ spec:
         image: jhonatanfariasdelima/tde-devsecops-jhonatan-eduardo
         ports:
           - name: http-port
-            containerPort: 8080
+            containerPort: 8888
           - name: jnlp-port
-            containerPort: 50000
+            containerPort: 8888
         volumeMounts:
           - name: jenkins-vol
             mountPath: /var/jenkins_home
