@@ -69,6 +69,6 @@ app.get("/home",(req, res) => {
 
 module.exports = app;
 
-app.listen(8888, ()=>{console.log("App rodando!")});
+app.listen(8080, ()=>{console.log("App rodando!")});
 
 

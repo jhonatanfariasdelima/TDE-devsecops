@@ -76,11 +76,11 @@ pipeline {
 
 
         // usar a imagem do docker (kubernets) 
-        // stage('implantacao'){
-        //     steps{
-        //        
-        //     }
-        // }
+        stage('implantacao'){
+            steps{
+                sh 'kubectl apply -f k8s_jenkins_volume.yaml'
+            }
+        }
 
     }
 
