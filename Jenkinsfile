@@ -78,7 +78,7 @@ pipeline {
         // usar a imagem do docker (kubernets) 
         stage('implantacao'){
             steps{
-                sh 'echo "ubuntu" | sudo -S kubectl apply -f k8s_jenkins_volume.yaml'
+                sh 'sudo kubectl apply -f k8s_jenkins_volume.yaml'
             }
         }
 
