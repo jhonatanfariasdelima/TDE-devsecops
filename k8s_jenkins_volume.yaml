@@ -12,6 +12,7 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: "/home/ubuntu/Desktop/TDE-devsecops"
+
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

@@ -2,8 +2,8 @@ const express = require("express");
 const session = require("express-session");
 const app = express();
 const bodyParser = require("body-parser");
-const connection = require("./database/database");
-const loginModel = require("./database/Login");
+//const connection = require("./database/database");
+//const loginModel = require("./database/Login");
 
 //session
 app.use(session({
@@ -11,15 +11,15 @@ app.use(session({
 }));
 
 
-//Database
-connection
-    .authenticate()
-    .then(() => {
-        //console.log("Conexão feita com o banco de dados!")
-    })
-    .catch((msgErro) => {
-        console.log(msgErro);
-    })
+// //Database
+// connection
+//     .authenticate()
+//     .then(() => {
+//         //console.log("Conexão feita com o banco de dados!")
+//     })
+//     .catch((msgErro) => {
+//         console.log(msgErro);
+//     })
 
 
 app.set("view engine", "ejs");
@@ -39,25 +39,25 @@ app.post("/login",(req, res) => {
     var password = req.body.password;
 
 
-    loginModel.findOne({
-        where: {user: user}
-    }).then(login => {
+    // loginModel.findOne({
+    //     where: {user: user}
+    // }).then(login => {
 
-        if(login != null){
-            if(login.password == password){
+        if(user == "admin"){
+            if(password == "admin"){
                 req.session.user = {
-                    user: login.user
+                    user: user
                 }
                 res.redirect("/home");
             }else{
-                console.log(login);
+                
                 res.send("Login ou senha não encontrado");
             }
         }else{
-            console.log(login);
+            
             res.status(403).send("Login ou senha não encontrado");
         }
-    });
+    // });
 });
 
 app.get("/home",(req, res) => {

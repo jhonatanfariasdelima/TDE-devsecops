@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tde-devsecops-service
+spec:
+  type: NodePort
+  ports:
+    - targetPort: 8888  # Porta do contêiner
+      port: 8888        # Porta do serviço dentro do cluster
+      nodePort: 30001    # Porta no nó do cluster
+  selector:
+    app: tde-devsecops  # Use o mesmo rótulo que você usa no Pod
+---
+# Criamos um Deployment do Jenkins com uma réplica
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tde-devsecops
+  template:
+    metadata:
+      labels:
+        app: tde-devsecops
+    spec:
+      containers:
+      - name: index
+        securityContext:
+          allowPrivilegeEscalation: false
+        image: jhonatanfariasdelima/tde-devsecops-jhonatan-eduardo
+        ports:
+          - name: http-port
+            containerPort: 8888

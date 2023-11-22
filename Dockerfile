@@ -28,4 +28,5 @@ EXPOSE 8888
 
 # Comando para executar o aplicativo quando o contêiner for iniciado
 RUN cd TDE-devsecops && npm install
-#RUN cd TDE-devsecops && node index.js
+WORKDIR TDE-devsecops
+CMD ["node", "index.js"]
