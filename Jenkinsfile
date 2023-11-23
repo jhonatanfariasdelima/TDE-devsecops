@@ -23,15 +23,15 @@ pipeline {
             }
         }
 
-        stage('Gerenciamento de segredos'){
-            steps{
-                script {
-                    // Busca e define a variavel de ambiente do Jenkins
-                    def minhaVariavel = env.MYSQL
-                        sh 'export MYSQL=${minhaVariavel}'
-                }
-            }
-        }
+        // stage('Gerenciamento de segredos'){
+        //     steps{
+        //         script {
+        //             // Busca e define a variavel de ambiente do Jenkins
+        //             def minhaVariavel = env.MYSQL
+        //                 sh 'export MYSQL=${minhaVariavel}'
+        //         }
+        //     }
+        // }
 
         stage('Análise de Dependências') {
             steps {
