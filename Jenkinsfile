@@ -67,10 +67,10 @@ pipeline {
         //disponibilizar uma imagem pra rodar a aplicacao
         stage('Entrega'){
             steps{
-                sh 'docker build -t jhonatanfariasdelima/tde-devsecops-jhonatan-eduardo:latest .'
+                sh 'docker build -t jhonatanfariasdelima/tde-devsecops-jhonatan-eduardo-2:latest .'
                 sh 'docker images'
                 sh 'docker login -u jhonatanfariasdelima -p jhoni21061899'
-                sh 'docker push jhonatanfariasdelima/tde-devsecops-jhonatan-eduardo:latest' 
+                sh 'docker push jhonatanfariasdelima/tde-devsecops-jhonatan-eduardo-2:latest' 
             }
         }
 
