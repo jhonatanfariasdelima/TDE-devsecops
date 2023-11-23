@@ -78,7 +78,7 @@ pipeline {
         // usar a imagem do docker (kubernets) 
         stage('implantacao'){
             steps{
-                sh 'minikube kubectl -- delete -f testes.yaml'
+                sh 'minikube kubectl -- apply -f testes.yaml'
             }
         }
 
