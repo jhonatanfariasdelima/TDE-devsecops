@@ -30,7 +30,7 @@ spec:
       - name: index
         securityContext:
           allowPrivilegeEscalation: false
-        image: jhonatanfariasdelima/tde-devsecops-jhonatan-eduardo
+        image: jhonatanfariasdelima/tde-devsecops-jhonatan-eduardo-2
         ports:
           - name: http-port
             containerPort: 8888
